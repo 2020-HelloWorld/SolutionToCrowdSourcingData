@@ -64,6 +64,8 @@ def instascraper(person):
             if i==15:
                 break
     except:
+        pass
+    finally:
         return (imgs,videos)
 import facebook_scraper as fb
 def fbscraper(person):
@@ -96,7 +98,7 @@ def truecaller(Phone):
     id = "a1i0v--dRz1TIV3VsEutLD9CHF-_zejj5McgSGc_zxDpkW-IRlmLi2OkI6fxTaaQ"
 
     return(str(search_phonenumber(Phone,"IN", id)))
-# print(truecaller("8277099592"))
+print(instascraper('elonmusk'))
 
 
 
