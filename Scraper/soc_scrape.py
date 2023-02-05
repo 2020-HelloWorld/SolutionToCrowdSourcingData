@@ -95,9 +95,17 @@ from truecallerpy import search_phonenumber
 
 def truecaller(Phone):
     
-    id = "a1i0v--dRz1TIV3VsEutLD9CHF-_zejj5McgSGc_zxDpkW-IRlmLi2OkI6fxTaaQ"
-
-    return(str(search_phonenumber(Phone,"IN", id)))
+    try:
+        # id = "a1i0v--dRz1TIV3VsEutLD9CHF-_zejj5McgSGc_zxDpkW-IRlmLi2OkI6fxTaaQ"
+        import ppic
+        id = "a1i0v--dRz1TIV3VsEutLD9CHF-_zejj5McgSGc_zxDpkW-IRlmLi2OkI6fxTaaQ"
+        dataph=dict(search_phonenumber(Phone,"IN", id))
+        naam=dataph['data'][0]['name']
+        #if username==NULL call main function using truecaller
+        return [dataph,naam]
+        # return(str(search_phonenumber(Phone,"IN", id)))
+    except:
+        return -1
 print(instascraper('elonmusk'))
 
 

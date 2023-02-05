@@ -1,5 +1,5 @@
 import os
-from soc_scrape import instascraper,twitterscraper,fbscraper
+from soc_scrape import instascraper,twitterscraper,fbscraper,truecaller
 import urllib.request
 
 def downloader(username):
@@ -41,7 +41,7 @@ def downloader(username):
         count += 1
         urllib.request.urlretrieve(i, f'./data/{username}/video/fb/video_fb{count}.mp4') 
 
-def createHtml(username):
+def createHtml(username,phone):
     path = f'./data/{username}/image/insta/'
     i = 0
     for filename in os.listdir(path):
@@ -101,6 +101,15 @@ def createHtml(username):
     for i in twe_imageList:
         twe_imagesString += f'<img src="image/twitter/{i}" alt="image" height="400px" width="400px">'
 
+    callerId = truecaller(phone)
+    phoneInfo = ""
+    import json
+    if callerId!= -1:
+        phoneInfo = str(callerId[0])
+        # phoneInfo=json.loads(phoneInfo)
+        # phoneInfo=json.dumps(phoneInfo,indent=4)
+    # phoneInfo = json.stringify(phoneInfo)
+    # print(phoneInfo)
 
     data ="""
     <!DOCTYPE html>
@@ -113,7 +122,7 @@ def createHtml(username):
     """+username+"""</title>
     </head>
     <body>
-    """+"<h2>Twitter Images</h2>"+twe_imagesString+"<h2>Instagram Images</h2>"+insta_imagesString+"<h2>Instagram Videos</h2>"+insta_videoString+"<h2>Facebook Images</h2>"+fb_imagesString+"<h2>Facebook Videos</h2>"+fb_videoString+"""
+    """+'<h2>True Caller Data</h2>'+phoneInfo+"<h2>Twitter Images</h2>"+twe_imagesString+"<h2>Instagram Images</h2>"+insta_imagesString+"<h2>Instagram Videos</h2>"+insta_videoString+"<h2>Facebook Images</h2>"+fb_imagesString+"<h2>Facebook Videos</h2>"+fb_videoString+"""
     </body>
     </html> 
     """
@@ -121,5 +130,6 @@ def createHtml(username):
     file_html.close()
 
 username = "elonmusk"
+phone = "8277099592"
 downloader(username)
-createHtml(username)
+createHtml(username,phone)
