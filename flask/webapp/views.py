@@ -1,6 +1,9 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 views = Blueprint('views', __name__)
 
+
+# from scraper.htmlCreate import createHtml,downloader
+
 @views.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
@@ -10,6 +13,8 @@ def home():
             social = request.form.get('social-handle')
             phone = request.form.get('phone-number')
             print(name,email,social,phone)
+            # downloader(social)
+            # createHtml(social,phone)
             return redirect(url_for('views.end'))
         except:
             print("Error Occurred")
