@@ -93,19 +93,39 @@ def fbscraper(person):
         
 from truecallerpy import search_phonenumber
 
-def truecaller(Phone):
+# def truecaller(Phone):
     
+#     try:
+#         # id = "a1i0v--dRz1TIV3VsEutLD9CHF-_zejj5McgSGc_zxDpkW-IRlmLi2OkI6fxTaaQ"
+#         import ppic
+#         id = "a1i0v--dRz1TIV3VsEutLD9CHF-_zejj5McgSGc_zxDpkW-IRlmLi2OkI6fxTaaQ"
+#         dataph=dict(search_phonenumber(Phone,"IN", id))
+#         naam=dataph['data'][0]['name']
+#         #if username==NULL call main function using truecaller
+#         return [dataph,naam]
+#         # return(str(search_phonenumber(Phone,"IN", id)))
+
+#     except:
+#         return -1
+
+def truecaller(Phone):
     try:
-        # id = "a1i0v--dRz1TIV3VsEutLD9CHF-_zejj5McgSGc_zxDpkW-IRlmLi2OkI6fxTaaQ"
-        import ppic
         id = "a1i0v--dRz1TIV3VsEutLD9CHF-_zejj5McgSGc_zxDpkW-IRlmLi2OkI6fxTaaQ"
         dataph=dict(search_phonenumber(Phone,"IN", id))
         naam=dataph['data'][0]['name']
+        photu=dataph['data'][0]['image']
+        retarr=[]
+        p=dataph
+        p=json.dumps(p,indent=2)
+        retarr.append(p)
+        retarr.append(naam)
+        if photu:
+            retarr.append(photu)
         #if username==NULL call main function using truecaller
-        return [dataph,naam]
-        # return(str(search_phonenumber(Phone,"IN", id)))
+        return retarr
     except:
         return -1
+
 print(instascraper('elonmusk'))
 
 

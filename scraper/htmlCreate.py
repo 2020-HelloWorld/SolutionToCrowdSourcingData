@@ -106,7 +106,7 @@ def createHtml(username,phone):
     phoneInfo = ""
     import json
     if callerId!= -1:
-        phoneInfo = str(callerId[0])
+        phoneInfo = callerId
         # phoneInfo=json.loads(phoneInfo)
         # phoneInfo=json.dumps(phoneInfo,indent=4)
     # phoneInfo = json.stringify(phoneInfo)
@@ -123,7 +123,7 @@ def createHtml(username,phone):
     """+username+"""</title>
     </head>
     <body>
-    """+'<h2>True Caller Data</h2>'+phoneInfo+"<h2>Twitter Images</h2>"+twe_imagesString+"<h2>Instagram Images</h2>"+insta_imagesString+"<h2>Instagram Videos</h2>"+insta_videoString+"<h2>Facebook Images</h2>"+fb_imagesString+"<h2>Facebook Videos</h2>"+fb_videoString+"""
+    """+'<h2>True Caller Data</h2><h4>'+phoneInfo[1]+'<h4/><br/><br/>'+phoneInfo[0]+"<h2>Twitter Images</h2>"+twe_imagesString+"<h2>Instagram Images</h2>"+insta_imagesString+"<h2>Instagram Videos</h2>"+insta_videoString+"<h2>Facebook Images</h2>"+fb_imagesString+"<h2>Facebook Videos</h2>"+fb_videoString+"""
     </body>
     </html> 
     """
