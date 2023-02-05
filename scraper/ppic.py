@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 from math import sqrt
+import time
 def similarppl(full_name):
     name = full_name# replace with the name you want to search
 
@@ -13,7 +14,8 @@ def similarppl(full_name):
 
     # Encode the HTML content as UTF-8
     html_content = html_content.encode("utf-8")
-
+    time.sleep(5)
+    # print(html_content)
     # Use BeautifulSoup to parse the HTML content
     soup = BeautifulSoup(html_content, "html.parser")
 
@@ -48,3 +50,5 @@ def similarppl(full_name):
     # print(similarity)
     return similarity
 
+name = "Anucheth"
+print(similarppl(name))
