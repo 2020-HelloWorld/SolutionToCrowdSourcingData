@@ -4,11 +4,13 @@ This is the project for Karnataka Police Hackathon
 
 Crowsourcing Website : https://defastra.com/
 
-Mosint Framework : https://github.com/alpkeskin/mosint
+Instagram : instagram loader
 
-Online Presense : https://github.com/himanshux101/onlinepresence
+Twitter : Twitter Developer Account
 
-WhoAlias : https://github.com/griimnak/WhoAlias
+Facebook : Facebook-scraper python module
+
+General deep search : blackbird
 
 Truecallerpy
 https://stackoverflow.com/questions/72457697/is-there-any-api-from-trucaller-to-get-user-details

@@ -88,9 +88,19 @@ def fbscraper(person):
     
     finally:
         return (imgs,videos)
+        
+from truecallerpy import search_phonenumber
+
+def truecaller(Phone):
+    
+    id = "a1i0v--dRz1TIV3VsEutLD9CHF-_zejj5McgSGc_zxDpkW-IRlmLi2OkI6fxTaaQ"
+
+    return(str(search_phonenumber(Phone,"IN", id)))
+# print(truecaller("8277099592"))
 
 
-print(fbscraper("narendramodi"))
+
+    
 
     
 
