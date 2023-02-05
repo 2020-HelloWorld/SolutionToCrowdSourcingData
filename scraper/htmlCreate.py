@@ -109,6 +109,8 @@ def createHtml(username,phone):
         phoneInfo = callerId
         # phoneInfo=json.loads(phoneInfo)
         # phoneInfo=json.dumps(phoneInfo,indent=4)
+    else:
+        phoneInfo = ["","",""]
     # phoneInfo = json.stringify(phoneInfo)
     # print(phoneInfo)
 
@@ -130,7 +132,12 @@ def createHtml(username,phone):
     file_html.write(data)
     file_html.close()
 
-username = "elonmusk"
-phone = "8277099592"
+username = "anucheth"
+phone = ""
 downloader(username)
 createHtml(username,phone)
+
+# username = "user1"
+# phone = "9845013377"
+# downloader(username)
+# createHtml(username,phone)
