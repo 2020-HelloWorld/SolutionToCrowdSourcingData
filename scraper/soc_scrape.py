@@ -67,18 +67,17 @@ def instascraper(person):
         pass
     finally:
         return (imgs,videos)
+        
 import facebook_scraper as fb
 def fbscraper(person):
     i=0
     imgs=[]
     videos=[]
     try:
-        for post in fb.get_posts("narendramodi",cookies="facebook.com_cookies.txt"): 
+        for post in fb.get_posts(person,cookies="facebook.com_cookies.txt"): 
             if i==5:
-                break
-            if post['video']:
-
-                
+                return (imgs,videos)
+            if post['video']:                
                 videos.append(post['video'])
             elif post['image']:
                 imgs.append(post['image'])
@@ -87,9 +86,8 @@ def fbscraper(person):
     except: 
         print("err")
         pass
-    
-    finally:
-        return (imgs,videos)
+
+    return (imgs,videos)
         
 from truecallerpy import search_phonenumber
 
@@ -113,20 +111,20 @@ def truecaller(Phone):
         id = "a1i0v--dRz1TIV3VsEutLD9CHF-_zejj5McgSGc_zxDpkW-IRlmLi2OkI6fxTaaQ"
         dataph=dict(search_phonenumber(Phone,"IN", id))
         naam=dataph['data'][0]['name']
-        photu=dataph['data'][0]['image']
+        # photu=dataph['data'][0]['image']
         retarr=[]
         p=dataph
         p=json.dumps(p,indent=2)
         retarr.append(p)
         retarr.append(naam)
-        if photu:
-            retarr.append(photu)
+        # if photu:
+        #     retarr.append(photu)
         #if username==NULL call main function using truecaller
         return retarr
     except:
         return -1
 
-print(instascraper('elonmusk'))
+print(fbscraper('elonmusk'))
 
 
 
