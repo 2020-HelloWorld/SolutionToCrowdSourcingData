@@ -7,7 +7,7 @@ import json
 
 
 def filter_BB(person):
-    with open("results/"+person+".json", "r") as file:
+    with open("scraper/results/"+person+".json", "r") as file:
     # Load the JSON data from the file
         data = json.load(file)
     
@@ -19,7 +19,7 @@ def filter_BB(person):
         if i['response-status']=="200 OK" and i['status']=="FOUND":
             valued[i['app']]=i
 
-    with open("results/1"+person+".json", "w") as file:
+    with open("scraper/results/1"+person+".json", "w") as file:
     # Load the JSON data from the file
         json.dump(valued,file,indent=4)
     # query = 'from:elonmusk has:media_link'
