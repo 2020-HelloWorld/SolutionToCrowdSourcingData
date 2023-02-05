@@ -13,13 +13,13 @@ import aiohttp
 from bs4 import BeautifulSoup
 from colorama import Fore, init
 
-file = open('data.json')
+file = open('scraper/data.json')
 searchData = json.load(file)
 currentOs = sys.platform
 path = os.path.dirname(__file__)
 warnings.filterwarnings('ignore')
 
-useragents = open('useragents.txt').read().splitlines()
+useragents = open('scraper/useragents.txt').read().splitlines()
 proxy = None
 
 
